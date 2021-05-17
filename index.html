@@ -4,32 +4,35 @@
         <meta charset="UTF-8">
         <title>Shiny Calculator</title>
         <link href="style.css" type="text/css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Plaster&display=swap" rel="stylesheet"> 
+        <script defer type="text/javascript" src="script.js"></script>
     </head>
     <body>
         <main>
             <div class="page-wrapper">
                 <div class="calculator">
                     <div class="screen">
-                        <p id="operation">OPERATION</p>
-                        <p id="input">INPUT</p>
+                        <p id="operation"></p>
+                        <p id="input"></p>
                     </div>
                     <div class="buttons">
-                        <button>1</button>
-                        <button>2</button>
-                        <button>3</button>
-                        <button>+</button>
-                        <button>4</button>
-                        <button>5</button>
-                        <button>6</button>
-                        <button>-</button>
-                        <button>7</button>
-                        <button>8</button>
-                        <button>9</button>
-                        <button>*</button>
-                        <button>C</button>
-                        <button>0</button>
-                        <button>=</button>
-                        <button>/</button>
+                        <button class="operand" id="numberOne">1</button>
+                        <button class="operand" id="numberTwo">2</button>
+                        <button class="operand" id="numberThree">3</button>
+                        <button class="operator" id="plusSign">+</button>
+                        <button class="operand" id="numberFour">4</button>
+                        <button class="operand" id="numberFive">5</button>
+                        <button class="operand" id="numberSix">6</button>
+                        <button class="operator" id="minusSign">-</button>
+                        <button class="operand" id="numberSeven">7</button>
+                        <button class="operand" id="numberEight">8</button>
+                        <button class="operand" id="numberNine">9</button>
+                        <button class="operator" id="multiplySign">*</button>
+                        <button class="delete" id="delete">C</button>
+                        <button class="operand" id="numberZero">0</button>
+                        <button class="equal" id="equalSign">=</button>
+                        <button class="operator" id="divisionSign">/</button>
                     </div>
                 </div>
             </div>
