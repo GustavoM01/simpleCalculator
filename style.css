@@ -5,23 +5,25 @@
 }
 
 .page-wrapper {
-    border: red 1px solid;
     margin: 0 auto;
     width: 900px;
 }
 
 .calculator {
-    border: purple 1px solid;
     background-color: rgb(252, 195, 7);
+    border: black 5px solid;
+    border-radius: 10px;
     min-height: 650px;
     margin: 100px 150px;
 }
 
 .screen {
     background-color: palegreen;
-    border: blue 1px solid;
+    border: black 5px solid;
+    border-radius: 10px;
     font-family: 'Orbitron', sans-serif;
     font-size: 30px;
+    font-weight: 800;
     height: 100px;
     margin: 70px auto;
     text-align: right;
@@ -38,12 +40,15 @@
 
 button {
     background-color: palegreen;
+    border: black 5px solid;
+    border-radius: 10px;
     font-family: 'Plaster', sans-serif;
     font-size: 30px;
 }
 
 #operation,
 #input {
-    height: 50px;
-    padding: 6px 15px;
+    height: 40px;
+    margin: 5px 15px;
 }
+
