@@ -24,7 +24,8 @@
     font-family: 'Orbitron', sans-serif;
     font-size: 30px;
     font-weight: 800;
-    height: 100px;
+    height: 20%;
+    min-height: 100px;
     margin: 70px auto;
     text-align: right;
     width: 500px;
@@ -50,7 +51,7 @@ button {
 
 #operation,
 #input {
-    height: 40px;
+    height: 50%;
     margin: 5px 15px;
 }
 
