@@ -28,6 +28,8 @@
     margin: 70px auto;
     text-align: right;
     width: 500px;
+    word-wrap: break-word;
+    word-break: break-all;
 }
 
 .buttons {
