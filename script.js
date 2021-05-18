@@ -74,7 +74,7 @@ equal.addEventListener('click', function(e) {
         }
     }   
     displayOperation.textContent += displayInput.textContent 
-    displayInput.textContent = result;  
+    displayInput.textContent = result;
 });
 
 // Add eventListener() and functionality to delete button
