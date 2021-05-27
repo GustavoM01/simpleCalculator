@@ -44,6 +44,7 @@ operator.forEach(function(btn) {
     btn.addEventListener('click', function(e) {
             if(numberPressed === false) {
                 operators[operators.length -1] = e.target.textContent;
+                displayOperation.textContent = displayOperation.textContent.slice(0, displayOperation.textContent.length -1) + e.target.textContent;
             }else{
                 if(previousResult) {
                     displayOperation.textContent = '';
