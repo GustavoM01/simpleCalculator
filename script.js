@@ -6,11 +6,15 @@ const deleteMemory = document.querySelector('.delete');
 // Display screen: displayInput for entered numbers and displayOperation for current operation
 const displayInput = document.querySelector('#input');
 const displayOperation = document.querySelector('#operation');
-// Variables ti keep track of current operation
+// Variables to keep track of current operation
 const numbers = [];
 const operators = [];
+let numberPressed = false;
 let currentOperand = '';
+let currentOperator = '';
 let result = 0;
+let previousResult = false;
+
 
 // Functions for each operator
 const addNumbers = function(a, b) {
@@ -31,50 +35,55 @@ operand.forEach(function(btn) {
     btn.addEventListener('click', function(e) {
         currentOperand += e.target.textContent;
         displayInput.textContent = currentOperand;
+        numberPressed = true;
     });
 });
 
 // Add eventListener() and functionality to operators
 operator.forEach(function(btn) {
     btn.addEventListener('click', function(e) {
-        if(currentOperand !== '') { // Condition to and operand and then delete. So it only gets pushed to the array once
-            numbers.push(currentOperand);
-            currentOperand = '';
-        }
-        if(numbers.length === operators.length + 1) { // Condition to create an array elements for operators array only if it follows an operand and not another operator
-            operators.push('current operator');
-            operators[operators.length - 1] = e.target.textContent;
-            displayOperation.textContent += displayInput.textContent + e.target.textContent;
-        } else {
-            operators[operators.length - 1] = e.target.textContent;
-            displayOperation.textContent += displayInput.textContent + e.target.textContent; 
-        }
+            if(numberPressed === false) {
+                operators[operators.length -1] = e.target.textContent;
+            }else{
+                if(previousResult) {
+                    displayOperation.textContent = '';
+                }
+                numbers.push(currentOperand);
+                operators.push(e.target.textContent);
+                displayOperation.textContent += currentOperand + e.target.textContent;
+                currentOperand = '';
+                numberPressed = false;
+                previousResult = false;
+            }
     });
 });
 
 // Add eventListener() and functionality to equal button
 equal.addEventListener('click', function(e) {
     numbers.push(currentOperand);
-    result = Number.parseInt(numbers[0]); // The first element in the numbers array is the first operand
-    console.log(result);
+    result = Number.parseFloat(numbers[0]); // The first element in the numbers array is the first operand
     for(let i = 0; i < operators.length; i++) {
         switch(operators[i]) {
             case '+':
-                result += Number.parseInt(numbers[i + 1]);
+                result += Number.parseFloat(numbers[i + 1]);
                 break;
             case '-':
-                result -= Number.parseInt(numbers[i + 1]);
+                result -= Number.parseFloat(numbers[i + 1]);
                 break;
             case '*':
-                result *= Number.parseInt(numbers[i + 1]);
+                result *= Number.parseFloat(numbers[i + 1]);
                 break;
             case '/':
-                result /= Number.parseInt(numbers[i + 1]);
+                result /= Number.parseFloat(numbers[i + 1]);
                 break;
         }
     }   
-    displayOperation.textContent += displayInput.textContent 
+    displayOperation.textContent += displayInput.textContent; 
     displayInput.textContent = result;
+    numbers.splice(0, numbers.length);
+    operators.splice(0, operators.length);
+    currentOperand = result.toString();
+    previousResult = true;
 });
 
 // Add eventListener() and functionality to delete button
